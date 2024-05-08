@@ -70,21 +70,10 @@
 		</table>
 		<div class="pagination justify-content-center">
 			<ul class="pagination">
-				<li class="page-item" th:if="${currentPage > 0}">
-					<a class="page-link" th:href="@{/students(page=0)}">First</a>
-				</li>
-				<li class="page-item" th:if="${currentPage > 0}">
-					<a class="page-link" th:href="@{/students(page=${currentPage - 1})}">&laquo; Previous</a>
-				</li>
 				<li class="page-item" th:each="pageNo : ${#numbers.sequence(0, totalPages - 1)}" th:class="${pageNo == currentPage} ? 'active' : ''">
 					<a class="page-link" th:href="@{/students(page=${pageNo})}" th:text="${pageNo + 1}"></a>
 				</li>
-				<li class="page-item" th:if="${currentPage < totalPages - 1}">
-					<a class="page-link" th:href="@{/students(page=${currentPage + 1})}">Next &raquo;</a>
-				</li>
-				<li class="page-item" th:if="${currentPage < totalPages - 1}">
-					<a class="page-link" th:href="@{/students(page=${totalPages - 1})}">Last</a>
-				</li>
+
 			</ul>
 		</div>
 
